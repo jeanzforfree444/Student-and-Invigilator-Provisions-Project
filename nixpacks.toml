@@ -17,4 +17,4 @@ cmds = [
 ]
 
 [start]
-cmd = "cd services/django/lithium && /app/.venv/bin/python manage.py migrate --noinput && /app/.venv/bin/gunicorn --bind 0.0.0.0:$PORT django_project.wsgi"
+cmd = "cd services/django/lithium && /app/.venv/bin/python manage.py migrate --noinput && /app/.venv/bin/gunicorn --bind 0.0.0.0:$PORT --access-logfile - --error-logfile - --log-level info --capture-output django_project.wsgi"
