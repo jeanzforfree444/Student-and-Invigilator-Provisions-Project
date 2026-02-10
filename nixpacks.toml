@@ -1,21 +1,17 @@
 providers = ["python", "node"]
 
-[phases.setup]
-cmds = [
-  "python3 -m ensurepip --upgrade"
-]
-
 [phases.install]
 cmds = [
-  "python3 -m pip install -r services/django/lithium/requirements.txt",
+  "python3 -m venv /app/.venv",
+  "/app/.venv/bin/pip install -r services/django/lithium/requirements.txt",
   "npm install --prefix services/frontend/app"
 ]
 
 [phases.build]
 cmds = [
   "npm run build --prefix services/frontend/app",
-  "cd services/django/lithium && python3 manage.py collectstatic --noinput"
+  "cd services/django/lithium && /app/.venv/bin/python manage.py collectstatic --noinput"
 ]
 
 [start]
-cmd = "cd services/django/lithium && python3 manage.py migrate --noinput && gunicorn --bind 0.0.0.0:$PORT django_project.wsgi"
+cmd = "cd services/django/lithium && /app/.venv/bin/python manage.py migrate --noinput && /app/.venv/bin/gunicorn --bind 0.0.0.0:$PORT django_project.wsgi"
