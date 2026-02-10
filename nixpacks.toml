@@ -3,6 +3,9 @@ providers = ["python", "node"]
 [phases.setup]
 nixPkgs = ["python3", "postgresql_16.dev", "gcc", "libffi", "libffi.dev", "pkg-config"]
 
+[env]
+PKG_CONFIG_PATH = "/nix/store/rhl22j48423aazmhjkwndpr1syzq5l46-libffi-3.4.6-dev/lib/pkgconfig"
+
 [phases.install]
 cmds = [
   "python3 -m venv /app/.venv",
