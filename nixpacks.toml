@@ -1,5 +1,10 @@
 providers = ["python", "node"]
 
+[phases.setup]
+cmds = [
+  "python3 -m ensurepip --upgrade"
+]
+
 [phases.install]
 cmds = [
   "python3 -m pip install -r services/django/lithium/requirements.txt",
