@@ -21,7 +21,7 @@ def env_list(name: str, default: str = "") -> list[str]:
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret-key-change-me")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "f80ca1e93f5038c4b2e60621bae79523f1b81966")
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 # SECURITY WARNING: don't run with debug turned on in production!
