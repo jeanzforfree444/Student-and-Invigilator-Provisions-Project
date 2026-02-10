@@ -1,7 +1,7 @@
-providers = ["python", "node"]
+providers = ["python"]
 
 [phases.setup]
-nixPkgs = ["python3", "postgresql_16.dev", "gcc", "libffi", "libffi.dev", "pkg-config"]
+nixPkgs = ["python3", "postgresql_16.dev", "gcc", "libffi", "libffi.dev", "pkg-config", "nodejs_20"]
 
 [phases.install]
 cmds = [
