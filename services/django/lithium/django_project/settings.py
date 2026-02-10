@@ -32,7 +32,7 @@ if not DEBUG and SECRET_KEY == "dev-secret-key-change-me":
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = os.getenv(
     "DJANGO_ALLOWED_HOSTS",
-    "localhost,0.0.0.0,127.0.0.1,django",
+    "localhost,0.0.0.0,127.0.0.1,django,psd-jh03.netlify.app",
 ).split(",")
 
 
@@ -103,7 +103,7 @@ TEMPLATES = [
 _DB_NAME = os.getenv("DJANGO_DB_NAME", "postgres")
 _DB_USER = os.getenv("DJANGO_DB_USER", "postgres")
 _DB_PASSWORD = os.getenv("DJANGO_DB_PASSWORD", "postgres")
-_DB_HOST = os.getenv("DJANGO_DB_HOST", "127.0.0.1")
+_DB_HOST = os.getenv("DJANGO_DB_HOST", "psd-jh03.netlify.app")
 _DB_PORT = os.getenv("DJANGO_DB_PORT", "5432")
 
 DATABASES = {
