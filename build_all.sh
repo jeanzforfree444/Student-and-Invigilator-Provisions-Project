@@ -4,3 +4,6 @@ cd services/django/lithium
 pip install -r requirements.txt
 cd ../../frontend/app
 npm install
+npm run build
+cd ../../django/lithium
+python manage.py collectstatic --noinput

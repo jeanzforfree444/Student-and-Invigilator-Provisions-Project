@@ -25,6 +25,10 @@ if (typeof SharedArrayBuffer !== "undefined") {
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    outDir: path.resolve(__dirname, "../django/lithium/static/frontend"),
+    emptyOutDir: true,
+  },
   test: {
     testTimeout: 30000,
     hookTimeout: 30000,

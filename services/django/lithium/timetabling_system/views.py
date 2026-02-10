@@ -1,6 +1,9 @@
+from pathlib import Path
+
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.db import DatabaseError, connection
-from django.http import JsonResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_POST
 from django.views.generic import TemplateView
@@ -41,6 +44,13 @@ def healthz_view(_request):
             },
         }
     )
+
+
+def spa_view(_request):
+    index_path = Path(settings.BASE_DIR) / "static" / "frontend" / "index.html"
+    if not index_path.exists():
+        raise Http404("Frontend build not found.")
+    return HttpResponse(index_path.read_text(encoding="utf-8"), content_type="text/html")
 
 
 @csrf_protect

@@ -1,5 +1,6 @@
 const { defineConfig } = require("vite");
 const reactImport = require("@vitejs/plugin-react");
+const path = require("path");
 
 const react = reactImport.default ?? reactImport;
 
@@ -26,6 +27,10 @@ if (typeof SharedArrayBuffer !== "undefined") {
 
 module.exports = defineConfig({
   plugins: [react()],
+  build: {
+    outDir: path.resolve(__dirname, "../django/lithium/static/frontend"),
+    emptyOutDir: true,
+  },
   test: {
     testTimeout: 30000,
     hookTimeout: 30000,
