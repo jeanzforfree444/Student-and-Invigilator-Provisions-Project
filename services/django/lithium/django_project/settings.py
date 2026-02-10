@@ -32,7 +32,7 @@ if not DEBUG and SECRET_KEY == "dev-secret-key-change-me":
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = os.getenv(
     "DJANGO_ALLOWED_HOSTS",
-    "localhost,0.0.0.0,127.0.0.1,django,psd-jh03.netlify.app,student-and-invigilator-provisions-project-production-0434.up.railway.app",
+    "localhost,0.0.0.0,127.0.0.1,django,psd-jh03.netlify.app,student-and-invigilator-provisions-project-production-0434.up.railway.app,student-and-invigilator-provisions-project-production.up.railway.app",
 ).split(",")
 
 
@@ -276,6 +276,7 @@ _csrf_env = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 CORS_ALLOWED_ORIGINS = _cors_env or [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://student-and-invigilator-provisions-project-production.up.railway.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = _csrf_env or [
@@ -283,6 +284,7 @@ CSRF_TRUSTED_ORIGINS = _csrf_env or [
     "http://127.0.0.1:8000",  # Alternative local address
     "http://localhost:3000",  # React dev server
     "http://127.0.0.1:3000",  # Alternative React dev server
+    "https://student-and-invigilator-provisions-project-production.up.railway.app",
 ]
 
 # CSRF & cookie hardening (toggle secure cookies via env to keep local dev workable)
