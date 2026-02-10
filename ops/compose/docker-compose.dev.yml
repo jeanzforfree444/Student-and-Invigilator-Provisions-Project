@@ -1,0 +1,42 @@
+services:
+  frontend:
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    build:
+      context: ../../services/frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:8000
+    volumes:
+      - ../../services/frontend/app:/app
+      - ../../.docker/node_modules/frontend:/app/node_modules
+    depends_on:
+      - django
+
+  django:
+    build:
+      context: ../../services/django/lithium
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DJANGO_SETTINGS_MODULE=django_project.settings
+      - DJANGO_DB_NAME=postgres
+      - DJANGO_DB_USER=postgres
+      - DJANGO_DB_PASSWORD=postgres
+      - DJANGO_DB_HOST=127.0.0.1
+      - DJANGO_DB_PORT=5432
+      - DJANGO_POSTGRES_DATA=/app/.postgres-data
+      - HOST_UID=${HOST_UID:-1000}
+      - HOST_GID=${HOST_GID:-1000}
+    volumes:
+      - ../../services/django/lithium:/app
+      - django_venv:/app/.venv
+    command:
+      - bash
+      - -lc
+      - ./scripts/run-dev-with-postgres.sh
+
+volumes:
+  django_venv:

@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: lithium
+Version: 0.1.0
+Requires-Python: >=3.12
+License-File: LICENSE
+Requires-Dist: django~=5.1
+Requires-Dist: django-allauth[socialaccount]~=65.2
+Requires-Dist: django-debug-toolbar~=4.4
+Requires-Dist: crispy-bootstrap5~=2024.10
+Requires-Dist: gunicorn~=23.0
+Requires-Dist: psycopg[binary]~=3.2
+Requires-Dist: whitenoise~=6.7
+Requires-Dist: djangorestframework~=3.15
+Requires-Dist: django-cors-headers>=4.9.0
+Dynamic: license-file

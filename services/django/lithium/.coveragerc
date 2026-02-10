@@ -1,0 +1,14 @@
+[run]
+omit =
+    */tests*
+    */tests/*
+    services/django/lithium/tests/*
+    */migrations/*
+    manage.py
+    django_project/urls.py
+    accounts/tests_ext.py
+    accounts/tests.py
+    accounts/tests_validators.py
+    */accounts/tests_ext.py
+    */accounts/tests.py
+    */accounts/tests_validators.py

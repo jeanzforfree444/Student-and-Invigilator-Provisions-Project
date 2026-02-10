@@ -1,0 +1,15 @@
+export const VENUE_TYPES = [
+  { value: "main_hall", label: "Main Hall" },
+  { value: "purple_cluster", label: "Purple Cluster" },
+  { value: "computer_cluster", label: "Computer Cluster" },
+  { value: "separate_room", label: "Separate Room" },
+  { value: "school_to_sort", label: "School To Sort" },
+  { value: "core_exam_venue", label: "Core Exam Venue" },
+  { value: "kelvin_hall", label: "Kelvin Hall" },
+  { value: "detached_duty", label: "Detached Duty" },
+  { value: "vet_school", label: "Vet School" },
+  { value: "scottish_event_campus", label: "Scottish Event Campus" },
+  { value: "osce_exam", label: "OSCE Exam" },
+  { value: "pre_sessional_english", label: "Pre-Sessional English" },
+  { value: "admin", label: "Admin" },
+];
